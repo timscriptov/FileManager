@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="88dp"
+    android:background="@drawable/selectable_background">
+
+    <ImageView
+        android:id="@+id/list_item_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/list_item_icon_margin"
+        android:scaleType="center"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/list_item_name_marginStart"
+        android:layout_marginEnd="@dimen/list_item_name_marginEnd"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/list_item_title"
+            style="@style/Text.Subhead" />
+
+        <TextView
+            android:id="@+id/list_item_artist"
+            style="@style/Text.Body1" />
+
+        <TextView
+            android:id="@+id/list_item_album"
+            style="@style/Text.Body1" />
+
+    </LinearLayout>
+
+</RelativeLayout>

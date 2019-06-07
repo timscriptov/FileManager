@@ -1,0 +1,62 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Appearance">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_icon"
+            android:title="Use circular icons" />
+
+        <!--<CheckBoxPreference-->
+        <!--android:key="pref_thumbnail"-->
+        <!--android:title="Display thumbnails"-->
+        <!--android:summary="For images and videos"-->
+        <!--android:dependency="pref_icon"/>-->
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="General">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_extension"
+            android:summary="For known file types"
+            android:title="Hide extensions" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_date"
+            android:title="Show last modified" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_size"
+            android:title="Show file sizes" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="About">
+
+        <Preference
+            android:summary="@string/app_version"
+            android:title="Version">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://play.google.com/store/apps/details?id=ru.file.manager" />
+
+        </Preference>
+
+        <Preference
+            android:summary="@string/app_developer"
+            android:title="Developer">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://play.google.com/store/apps/dev?id=5526451977947367946" />
+
+        </Preference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
