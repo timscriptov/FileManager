@@ -36,13 +36,13 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(context).inflate(itemLayout, parent, false);
         switch (itemLayout) {
-            case R.layout.list_item_0:
+            case R.layout.list_item_files:
                 return new ViewHolder0(context, onItemClickListener, itemView);
-            case R.layout.list_item_1:
+            case R.layout.list_item_music:
                 return new ViewHolderAudio(context, onItemClickListener, itemView);
-            case R.layout.list_item_2:
+            case R.layout.list_item_image:
                 return new ViewHolderImage(context, onItemClickListener, itemView);
-            case R.layout.list_item_3:
+            case R.layout.list_item_video:
                 return new ViewHolderVideo(context, onItemClickListener, itemView);
             default:
                 return null;

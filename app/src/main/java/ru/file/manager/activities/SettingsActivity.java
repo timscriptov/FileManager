@@ -1,9 +1,9 @@
 package ru.file.manager.activities;
 
-import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -26,15 +26,14 @@ public class SettingsActivity extends AppCompatActivity {
             });
             toolbar.setTitle(R.string.navigation_settings);
         }
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment, new SettingsFragment()).commit();
         setSupportActionBar(toolbar);
     }
 
-    public static class SettingsFragment extends PreferenceFragment {
+    public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
+        public void onCreatePreferences(Bundle bundle, String s) {
             addPreferencesFromResource(R.xml.preferences);
         }
     }

@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorAccentLight">#FFFF00</color>
-    <color name="colorAccentDark0">#448AFF</color>
-    <color name="colorAccentDark1">#E040FB</color>
-    <color name="colorAccentDark2">#536DFE</color>
-    <color name="colorAccentDark3">#448AFF</color>
-    <color name="colorPrimary0">#00BCD4</color>
-    <color name="colorPrimary1">#EF6C00</color>
-    <color name="colorPrimary2">#9C27B0</color>
-    <color name="colorPrimary3">#F44336</color>
-    <color name="colorPrimaryDark0">#0097A7</color>
-    <color name="colorPrimaryDark1">#E64A19</color>
-    <color name="colorPrimaryDark2">#7B1FA2</color>
-    <color name="colorPrimaryDark3">#D32F2F</color>
+    <color name="colorPrimary">#37474F</color>
+    <color name="colorPrimaryDark">#263238</color>
+    <color name="colorAccent">#F50057</color>
+    <color name="colorSelected">#E3F2FD</color>
+
     <!--FILE COLORS-->
     <color name="directory">#61000000</color>
     <color name="misc_file">#8A000000</color>

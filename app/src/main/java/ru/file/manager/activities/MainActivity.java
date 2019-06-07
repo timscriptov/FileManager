@@ -2,7 +2,6 @@ package ru.file.manager.activities;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -22,6 +21,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -188,20 +188,6 @@ public class MainActivity extends AppCompatActivity {
     private void initActivityFromIntent() {
         name = getIntent().getStringExtra(EXTRA_NAME);
         type = getIntent().getStringExtra(EXTRA_TYPE);
-
-        if (type != null) {
-            switch (type) {
-                case "audio":
-                    setTheme(R.style.app_theme_Audio);
-                    break;
-                case "image":
-                    setTheme(R.style.app_theme_Image);
-                    break;
-                case "video":
-                    setTheme(R.style.app_theme_Video);
-                    break;
-            }
-        }
     }
 
     private void loadIntoRecyclerView() {
@@ -354,20 +340,20 @@ public class MainActivity extends AppCompatActivity {
         if (type != null) {
             switch (type) {
                 case "audio":
-                    adapter.setItemLayout(R.layout.list_item_1);
+                    adapter.setItemLayout(R.layout.list_item_music);
                     adapter.setSpanCount(getResources().getInteger(R.integer.span_count1));
                     break;
                 case "image":
-                    adapter.setItemLayout(R.layout.list_item_2);
+                    adapter.setItemLayout(R.layout.list_item_image);
                     adapter.setSpanCount(getResources().getInteger(R.integer.span_count2));
                     break;
                 case "video":
-                    adapter.setItemLayout(R.layout.list_item_3);
+                    adapter.setItemLayout(R.layout.list_item_video);
                     adapter.setSpanCount(getResources().getInteger(R.integer.span_count3));
                     break;
             }
         } else {
-            adapter.setItemLayout(R.layout.list_item_0);
+            adapter.setItemLayout(R.layout.list_item_files);
             adapter.setSpanCount(getResources().getInteger(R.integer.span_count0));
         }
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
@@ -594,7 +580,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void gotoFeedback() {
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-        builder.setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary0));
         builder.build().launchUrl(this, Uri.parse("https://github.com/calintat/Explorer/issues"));
     }
 

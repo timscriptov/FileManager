@@ -7,12 +7,6 @@
             android:key="pref_icon"
             android:title="Use circular icons" />
 
-        <!--<CheckBoxPreference-->
-        <!--android:key="pref_thumbnail"-->
-        <!--android:title="Display thumbnails"-->
-        <!--android:summary="For images and videos"-->
-        <!--android:dependency="pref_icon"/>-->
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title="General">

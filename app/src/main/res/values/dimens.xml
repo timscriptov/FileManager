@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="app_bar_height">156dp</dimen>
+    <dimen name="app_bar_height">155dp</dimen>
     <dimen name="avatar_size">40dp</dimen>
-    <dimen name="title_margin">72dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="list_item_icon_margin">16dp</dimen>
     <dimen name="list_item_name_marginStart">72dp</dimen>
