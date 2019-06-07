@@ -3,7 +3,7 @@
     <color name="colorPrimary">#37474F</color>
     <color name="colorPrimaryDark">#263238</color>
     <color name="colorAccent">#F50057</color>
-    <color name="colorSelected">#E3F2FD</color>
+    <color name="colorSelected">#66E3F2FD</color>
 
     <!--FILE COLORS-->
     <color name="directory">#61000000</color>
