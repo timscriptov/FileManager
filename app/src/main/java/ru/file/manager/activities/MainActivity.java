@@ -12,7 +12,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -579,8 +578,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gotoFeedback() {
-        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-        builder.build().launchUrl(this, Uri.parse("https://github.com/calintat/Explorer/issues"));
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"elmurzaev.ram@gmail.com"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "DevSchool");
+        intent.setDataAndType(Uri.parse("email"), "message/rfc822");
+        Intent chooser = Intent.createChooser(intent, "Email");
+        startActivity(chooser);
     }
 
     private void gotoSettings() {

@@ -22,7 +22,7 @@ public abstract class InputDialog extends AlertDialog.Builder {
             public void onClick(DialogInterface dialog, int which) {
 
                 if (editText.length() != 0)
-                    InputDialog.this.onActionClick(editText.getText().toString());
+                    onActionClick(editText.getText().toString());
             }
         });
         setTitle(title);
