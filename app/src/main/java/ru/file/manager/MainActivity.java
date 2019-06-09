@@ -1,4 +1,4 @@
-package ru.file.manager.activities;
+package ru.file.manager;
 
 import android.Manifest;
 import android.app.Activity;
@@ -36,7 +36,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import ru.file.manager.R;
 import ru.file.manager.recycler.Adapter;
 import ru.file.manager.recycler.OnItemSelectedListener;
 import ru.file.manager.ui.InputDialog;

@@ -1,4 +1,4 @@
-package ru.file.manager.activities;
+package ru.file.manager;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-
-import ru.file.manager.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
