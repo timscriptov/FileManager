@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String SAVED_SELECTION = "ru.file.manager.SAVED_SELECTION";
     private static final String EXTRA_NAME = "ru.file.manager.EXTRA_NAME";
     private static final String EXTRA_TYPE = "ru.file.manager.EXTRA_TYPE";
-    private CollapsingToolbarLayout toolbarLayout;
+	
     private CoordinatorLayout coordinatorLayout;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -221,18 +221,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initAppBarLayout() {
-        toolbarLayout = findViewById(R.id.collapsing_toolbar_layout);
-        toolbar = findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.ic_more));
         setSupportActionBar(toolbar);
     }
 
     private void initCoordinatorLayout() {
-        coordinatorLayout = findViewById(R.id.coordinator_layout);
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
     }
 
     private void initDrawerLayout() {
-        drawerLayout = findViewById(R.id.drawer_layout);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         if (drawerLayout == null) return;
 
@@ -242,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFloatingActionButton() {
-        FloatingActionButton fab = findViewById(R.id.floating_action_button);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floating_action_button);
 
         if (fab == null) return;
 
@@ -262,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initNavigationView() {
-        navigationView = findViewById(R.id.navigation_view);
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
 
         if (navigationView == null) return;
 
@@ -354,32 +353,32 @@ public class MainActivity extends AppCompatActivity {
             adapter.setItemLayout(R.layout.list_item_files);
             adapter.setSpanCount(getResources().getInteger(R.integer.span_count0));
         }
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         if (recyclerView != null) recyclerView.setAdapter(adapter);
     }
 
     private void invalidateTitle() {
         if (adapter.anySelected()) {
             int selectedItemCount = adapter.getSelectedItemCount();
-            toolbarLayout.setTitle(String.format("%s selected", selectedItemCount));
+            setTitle(String.format("%s selected", selectedItemCount));
         } else if (name != null) {
-            toolbarLayout.setTitle(String.format("Search for %s", name));
+            setTitle(String.format("Search for %s", name));
         } else if (type != null) {
             switch (type) {
                 case "image":
-                    toolbarLayout.setTitle("Images");
+                    setTitle("Images");
                     break;
                 case "audio":
-                    toolbarLayout.setTitle("Music");
+                    setTitle("Music");
                     break;
                 case "video":
-                    toolbarLayout.setTitle("Videos");
+                    setTitle("Videos");
                     break;
             }
         } else if (currentDirectory != null && !currentDirectory.equals(FileUtils.getInternalStorage())) {
-            toolbarLayout.setTitle(FileUtils.getName(currentDirectory));
+            setTitle(FileUtils.getName(currentDirectory));
         } else {
-            toolbarLayout.setTitle(getResources().getString(R.string.app_name));
+            setTitle(getResources().getString(R.string.app_name));
         }
     }
 

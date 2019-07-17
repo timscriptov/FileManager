@@ -21,3 +21,5 @@
 -renamesourcefileattribute SourceFile
 -repackageclasses
 -allowaccessmodification
+
+-dontwarn

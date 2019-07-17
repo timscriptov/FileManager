@@ -6,8 +6,8 @@ android {
         applicationId "ru.file.manager"
         minSdkVersion 17
         targetSdkVersion 28
-        versionCode 500
-        versionName "5.0"
+        versionCode 501
+        versionName "5.1"
     }
     buildTypes {
         release {
@@ -18,14 +18,14 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:cardview-v7:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'com.android.support:percent:28.0.0'
-    implementation 'com.android.support:palette-v7:28.0.0'
-    implementation 'com.android.support:customtabs:28.0.0'
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.android.support:preference-v7:28.0.0'
+    implementation 'com.android.support:appcompat-v7:25.+'
+    implementation 'com.android.support:cardview-v7:25.+'
+    implementation 'com.android.support:design:25.+'
+    implementation 'com.android.support:support-v4:25.+'
+    implementation 'com.android.support:percent:25.+'
+    implementation 'com.android.support:palette-v7:25.+'
+    implementation 'com.android.support:customtabs:25.+'
+    implementation 'com.android.support:recyclerview-v7:25.+'
+    implementation 'com.android.support:preference-v7:25.+'
     implementation 'com.github.bumptech.glide:glide:3.5.2'
 }
