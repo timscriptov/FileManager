@@ -22,7 +22,7 @@
 
         <fragment
             android:id="@+id/fragment"
-            android:name="ru.file.manager.SettingsActivity$SettingsFragment"
+            android:name="ru.file.manager.fragments.SettingsFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
