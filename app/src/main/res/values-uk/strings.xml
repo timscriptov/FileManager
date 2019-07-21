@@ -1,0 +1,32 @@
+<resources>
+	
+    <string name="app_name" translatable="false">File Manager</string>
+	
+    <!--ACTIONS-->
+    <string name="action_delete">Видалити</string>
+    <string name="action_rename">Перейменувати</string>
+    <string name="action_search">Знайти</string>
+    <string name="action_copy">Копіювати</string>
+    <string name="action_move">Перемістити</string>
+    <string name="action_send">Відправити</string>
+    <string name="action_sort">Сортувати</string>
+	
+    <!--NAVIGATION-->
+    <string name="navigation_internal">Internal storage</string>
+    <string name="navigation_external">External storage</string>
+    <string name="navigation_audio">Music</string>
+    <string name="navigation_image">Images</string>
+    <string name="navigation_video">Videos</string>
+    <string name="navigation_directory_0">DCIM</string>
+    <string name="navigation_directory_1">Download</string>
+    <string name="navigation_directory_2">Movies</string>
+    <string name="navigation_directory_3">Music</string>
+    <string name="navigation_directory_4">Pictures</string>
+    <string name="navigation_settings">Налаштування</string>
+    <string name="navigation_feedback">Надіслати відгук</string>
+	
+	<!--DIALOGS & TOASTS-->
+	<string name="under_ratebar_text">Ваш рейтинг дуже важливий для нас!</string>
+	<string name="thanks">Спасибі</string>
+	
+</resources>
