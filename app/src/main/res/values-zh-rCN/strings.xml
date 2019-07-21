@@ -1,0 +1,32 @@
+<resources>
+	
+    <string name="app_name" translatable="false">File Manager</string>
+	
+    <!--ACTIONS-->
+    <string name="action_delete">删除</string>
+    <string name="action_rename">重命名</string>
+    <string name="action_search">搜索</string>
+    <string name="action_copy">複製</string>
+    <string name="action_move">移動</string>
+    <string name="action_send">發送</string>
+    <string name="action_sort">排序方式</string>
+	
+    <!--NAVIGATION-->
+    <string name="navigation_internal">Internal storage</string>
+    <string name="navigation_external">External storage</string>
+    <string name="navigation_audio">Music</string>
+    <string name="navigation_image">Images</string>
+    <string name="navigation_video">Videos</string>
+    <string name="navigation_directory_0">DCIM</string>
+    <string name="navigation_directory_1">Download</string>
+    <string name="navigation_directory_2">Movies</string>
+    <string name="navigation_directory_3">Music</string>
+    <string name="navigation_directory_4">Pictures</string>
+    <string name="navigation_settings">設置</string>
+    <string name="navigation_feedback">發送反饋</string>
+	
+	<!--DIALOGS & TOASTS-->
+	<string name="under_ratebar_text">您的評分對我們非常重要！</string>
+	<string name="thanks">謝謝</string>
+	
+</resources>
