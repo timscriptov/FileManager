@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    <string name="app_name" translatable="false">File Manager</string>
+	
+    <!--ACTIONS-->
+    <string name="action_delete">Удалить</string>
+    <string name="action_rename">Переименовать</string>
+    <string name="action_search">Найти</string>
+    <string name="action_copy">Копировать</string>
+    <string name="action_move">Переместить</string>
+    <string name="action_send">Отправить</string>
+    <string name="action_sort">Сортировать</string>
+	
+    <!--NAVIGATION-->
+    <string name="navigation_internal">Internal storage</string>
+    <string name="navigation_external">External storage</string>
+    <string name="navigation_audio">Music</string>
+    <string name="navigation_image">Images</string>
+    <string name="navigation_video">Videos</string>
+    <string name="navigation_directory_0">DCIM</string>
+    <string name="navigation_directory_1">Download</string>
+    <string name="navigation_directory_2">Movies</string>
+    <string name="navigation_directory_3">Music</string>
+    <string name="navigation_directory_4">Pictures</string>
+    <string name="navigation_settings">Настройки</string>
+    <string name="navigation_feedback">Отправить отзыв</string>
+	
+	<!--DIALOGS & TOASTS-->
+	<string name="under_ratebar_text">Ваш рейтинг очень важен для нас!</string>
+	<string name="thanks">Спасибо</string>
+	
+</resources>
