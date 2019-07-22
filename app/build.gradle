@@ -31,4 +31,5 @@ dependencies {
     implementation 'com.android.support:preference-v14:25.4.0'
     implementation 'com.github.bumptech.glide:glide:3.5.2'
 	implementation 'com.github.GrenderG:Toasty:1.4.2'
+	implementation 'org.zeroturnaround:zt-zip:1.13'
 }

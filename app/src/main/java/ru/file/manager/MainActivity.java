@@ -30,19 +30,19 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import ru.file.manager.data.Preferences;
 import ru.file.manager.module.Dialogs;
 import ru.file.manager.recycler.Adapter;
 import ru.file.manager.recycler.OnItemSelectedListener;
-import ru.file.manager.ui.InputDialog;
+import ru.file.manager.ui.CreateDialog;
+import ru.file.manager.ui.RenameDialog;
+import ru.file.manager.ui.SearchDialog;
 import ru.file.manager.utils.FileUtils;
 import ru.file.manager.utils.PreferenceUtils;
 
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity
 {
     private static final String SAVED_DIRECTORY = "ru.file.manager.SAVED_DIRECTORY";
     private static final String SAVED_SELECTION = "ru.file.manager.SAVED_SELECTION";
-    private static final String EXTRA_NAME = "ru.file.manager.EXTRA_NAME";
-    private static final String EXTRA_TYPE = "ru.file.manager.EXTRA_TYPE";
+    public static final String EXTRA_NAME = "ru.file.manager.EXTRA_NAME";
+    public static final String EXTRA_TYPE = "ru.file.manager.EXTRA_TYPE";
 
     private CoordinatorLayout coordinatorLayout;
     private DrawerLayout drawerLayout;
@@ -503,23 +503,7 @@ public class MainActivity extends AppCompatActivity
 
     private void actionCreate()
 	{
-        InputDialog inputDialog = new InputDialog(this, "Create", "Create directory") {
-            @Override
-            public void onActionClick(String text)
-			{
-                try
-				{
-                    File directory = FileUtils.createDirectory(currentDirectory, text);
-                    adapter.clearSelection();
-                    adapter.add(directory);
-                }
-				catch (Exception e)
-				{
-                    showMessage(e);
-                }
-            }
-        };
-        inputDialog.show();
+        new CreateDialog(this, adapter, currentDirectory).show();
     }
 
     private void actionDelete()
@@ -568,58 +552,12 @@ public class MainActivity extends AppCompatActivity
 
     private void actionRename()
 	{
-        final List<File> selectedItems = adapter.getSelectedItems();
-        InputDialog inputDialog = new InputDialog(this, "Rename", "Rename") {
-            @Override
-            public void onActionClick(String text)
-			{
-                adapter.clearSelection();
-                try
-				{
-                    if (selectedItems.size() == 1)
-					{
-                        File file = selectedItems.get(0);
-                        int index = adapter.indexOf(file);
-                        adapter.updateItemAt(index, FileUtils.renameFile(file, text));
-                    }
-					else
-					{
-                        int size = String.valueOf(selectedItems.size()).length();
-                        String format = " (%0" + size + "d)";
-
-                        for (int i = 0; i < selectedItems.size(); i++)
-						{
-                            File file = selectedItems.get(i);
-                            int index = adapter.indexOf(file);
-                            File newFile = FileUtils.renameFile(file, text + String.format(format, i + 1));
-                            adapter.updateItemAt(index, newFile);
-                        }
-                    }
-                }
-				catch (Exception e)
-				{
-                    showMessage(e);
-                }
-            }
-        };
-
-        if (selectedItems.size() == 1)
-		{
-            inputDialog.setDefault(FileUtils.removeExtension(selectedItems.get(0).getName()));
-        }
-        inputDialog.show();
+        new RenameDialog(this, adapter).show();
     }
 
     private void actionSearch()
 	{
-        InputDialog inputDialog = new InputDialog(this, "Search", "Search") {
-            @Override
-            public void onActionClick(String text)
-			{
-                setName(text);
-            }
-        };
-        inputDialog.show();
+        new SearchDialog(this).show();
     }
 
     private void actionCopy()
