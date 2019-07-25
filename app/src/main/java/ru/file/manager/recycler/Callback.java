@@ -8,13 +8,14 @@ import java.io.File;
 
 import ru.file.manager.utils.FileUtils;
 import ru.file.manager.utils.PreferenceUtils;
+import ru.file.manager.data.Preferences;
 
 class Callback extends SortedListAdapterCallback<File> {
-    private int criteria;
+    private String sortCriteria;
 
     Callback(Context context, RecyclerView.Adapter adapter) {
         super(adapter);
-        this.criteria = PreferenceUtils.getInteger(context, "pref_sort", 0);
+        this.sortCriteria = Preferences.sortCriteria();
     }
 
     @Override
@@ -22,12 +23,12 @@ class Callback extends SortedListAdapterCallback<File> {
         boolean isDirectory1 = file1.isDirectory();
         boolean isDirectory2 = file2.isDirectory();
         if (isDirectory1 != isDirectory2) return isDirectory1 ? -1 : +1;
-        switch (criteria) {
-            case 0:
+        switch (sortCriteria) {
+            case "name":
                 return FileUtils.compareName(file1, file2);
-            case 1:
+            case "date":
                 return FileUtils.compareDate(file1, file2);
-            case 2:
+            case "size":
                 return FileUtils.compareSize(file1, file2);
             default:
                 return 0;
@@ -44,9 +45,9 @@ class Callback extends SortedListAdapterCallback<File> {
         return item1.equals(item2);
     }
 
-    boolean update(int criteria) {
-        if (criteria == this.criteria) return false;
-        this.criteria = criteria;
+    boolean update(String sortCriteria) {
+        if (sortCriteria == this.sortCriteria) return false;
+        this.sortCriteria = sortCriteria;
         return true;
     }
 }

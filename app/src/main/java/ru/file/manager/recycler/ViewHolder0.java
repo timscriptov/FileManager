@@ -9,10 +9,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.View;
 import android.widget.TextView;
-
 import java.io.File;
-
 import ru.file.manager.R;
+import ru.file.manager.data.Preferences;
 import ru.file.manager.utils.FileUtils;
 import ru.file.manager.utils.PreferenceUtils;
 
@@ -43,7 +42,6 @@ final class ViewHolder0 extends ViewHolder {
 
     @Override
     protected void bindIcon(File file, Boolean selected) {
-        if (PreferenceUtils.getBoolean(context, "pref_icon", true)) {
             image.setOnClickListener(onActionClickListener);
             image.setOnLongClickListener(onActionLongClickListener);
             if (selected) {
@@ -59,27 +57,17 @@ final class ViewHolder0 extends ViewHolder {
                 DrawableCompat.setTint(drawable, Color.rgb(255, 255, 255));
                 image.setImageDrawable(drawable);
             }
-        } else {
-            int color = ContextCompat.getColor(context, FileUtils.getColorResource(file));
-            image.setBackground(null);
-            Drawable drawable = ContextCompat.getDrawable(context, FileUtils.getImageResource(file));
-            DrawableCompat.setTint(drawable, color);
-            image.setImageDrawable(drawable);
-        }
     }
 
     @Override
     protected void bindName(File file) {
-        boolean extension = PreferenceUtils.getBoolean(context, "pref_extension", true);
-        name.setText(extension ? FileUtils.getName(file) : file.getName());
+        name.setText(Preferences.showExtensions() ? FileUtils.getName(file) : file.getName());
     }
 
     @Override
     protected void bindInfo(File file) {
         date.setText(FileUtils.getLastModified(file));
         size.setText(FileUtils.getSize(context, file));
-        setVisibility(date, PreferenceUtils.getBoolean(context, "pref_date", true));
-        setVisibility(size, PreferenceUtils.getBoolean(context, "pref_size", false));
     }
 
     private ShapeDrawable getBackground(int color) {

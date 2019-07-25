@@ -591,7 +591,15 @@ public class MainActivity extends AppCompatActivity
     private void actionSort()
 	{
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        int checkedItem = PreferenceUtils.getInteger(this, "pref_sort", 0);
+		int checkedItem = 0;
+		switch(Preferences.sortCriteria()){
+			case "date":
+				checkedItem = 1;
+				break;
+			case "size":
+				checkedItem = 2;
+		}
+        
         String[] sorting = {"Name", "Last modified", "Size (high to low)"};
         final Context context = this;
 
@@ -599,8 +607,19 @@ public class MainActivity extends AppCompatActivity
 				@Override
 				public void onClick(DialogInterface dialog, int which)
 				{
-					adapter.update(which);
-					PreferenceUtils.putInt(context, "pref_sort", which);
+					String sortCriteria;
+					switch(which){
+						case 1:
+							sortCriteria = "date";
+							break;
+						case 2:
+							sortCriteria = "size";
+							break;
+						default:
+							sortCriteria = "name";
+					}
+					adapter.update(sortCriteria);
+					Preferences.setSortCriteria(sortCriteria);
 					dialog.dismiss();
 				}
 			});

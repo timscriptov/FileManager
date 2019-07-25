@@ -1,21 +1,41 @@
 package ru.file.manager.utils;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-public class PreferenceUtils {
+import ru.file.manager.App;
 
-    public static Boolean getBoolean(Context context, String key, Boolean defaultValue) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(key, defaultValue);
+public class PreferenceUtils
+{
+	private static SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(App.getContext());
+
+    protected static boolean getBoolean(String key, boolean defaultValue)
+	{
+        return prefs.getBoolean(key, defaultValue);
+    }
+	
+	protected static void putBoolean(String key, boolean value)
+	{
+        prefs.edit().putBoolean(key, value).apply();
     }
 
-    public static Integer getInteger(Context context, String key, Integer defaultValue) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getInt(key, defaultValue);
+    protected static int getInteger(String key, int defaultValue)
+	{
+        return prefs.getInt(key, defaultValue);
     }
 
-    public static void putInt(Context context, String key, int value) {
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-        sharedPref.edit().putInt(key, value).apply();
+    protected static void putInt(String key, int value)
+	{
+        prefs.edit().putInt(key, value).apply();
+    }
+	
+	protected static String getString(String key, String defaultValue)
+	{
+        return prefs.getString(key, defaultValue);
+    }
+
+    protected static void putString(String key, String value)
+	{
+        prefs.edit().putString(key, value).apply();
     }
 }

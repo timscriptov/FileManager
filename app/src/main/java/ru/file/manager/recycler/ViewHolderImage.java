@@ -6,14 +6,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.graphics.Palette;
 import android.view.View;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
-
 import java.io.File;
-
 import ru.file.manager.R;
+import ru.file.manager.data.Preferences;
 import ru.file.manager.utils.FileUtils;
 import ru.file.manager.utils.PreferenceUtils;
 
@@ -54,8 +52,7 @@ final class ViewHolderImage extends ViewHolder {
 
     @Override
     protected void bindName(File file) {
-        boolean extension = PreferenceUtils.getBoolean(context, "pref_extension", true);
-        name.setText(extension ? FileUtils.getName(file) : file.getName());
+        name.setText(Preferences.showExtensions() ? FileUtils.getName(file) : file.getName());
     }
 
     @Override

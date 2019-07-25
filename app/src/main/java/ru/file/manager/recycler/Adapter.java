@@ -118,8 +118,8 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> {
         onItemSelectedListener.onItemSelected();
     }
 
-    public void update(int criteria) {
-        if (callback.update(criteria)) {
+    public void update(String sortCriteria) {
+        if (callback.update(sortCriteria)) {
             ArrayList<File> list = getItems();
             clear();
             addAll(list);

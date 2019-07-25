@@ -1,19 +1,26 @@
 package ru.file.manager.data;
 
-import android.content.SharedPreferences;
-import android.support.v7.preference.PreferenceManager;
+import ru.file.manager.utils.PreferenceUtils;
 
-import ru.file.manager.App;
-
-public class Preferences
+public class Preferences extends PreferenceUtils
 {
-	private static SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(App.getContext());
-
     public static boolean isRated() {
-        return preferences.getBoolean("isRated", false);
+        return getBoolean("isRated", false);
     }
 
     public static void setRated(boolean value){
-        preferences.edit().putBoolean("isRated", value).apply();
+        putBoolean("isRated", value);
     }
+	
+	public static boolean showExtensions(){
+		return getBoolean("showExtensions", false);
+	}
+	
+	public static String sortCriteria(){
+		return getString("sortCriteria", "name");
+	}
+	
+	public static void setSortCriteria(String criteria){
+		putString("sortCriteria", criteria);
+	}
 }

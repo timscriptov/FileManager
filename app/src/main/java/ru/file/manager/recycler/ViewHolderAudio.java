@@ -12,6 +12,7 @@ import java.io.File;
 import ru.file.manager.R;
 import ru.file.manager.utils.FileUtils;
 import ru.file.manager.utils.PreferenceUtils;
+import ru.file.manager.data.Preferences;
 
 final class ViewHolderAudio extends ViewHolder {
     private TextView title;
@@ -51,9 +52,8 @@ final class ViewHolderAudio extends ViewHolder {
 
     @Override
     protected void bindName(File file) {
-        boolean extension = PreferenceUtils.getBoolean(context, "pref_extension", true);
         String string = FileUtils.getTitle(file);
-        title.setText(string != null && string.isEmpty() ? string : (extension ? FileUtils.getName(file) : file.getName()));
+        title.setText(string != null && string.isEmpty() ? string : (Preferences.showExtensions() ? FileUtils.getName(file) : file.getName()));
     }
 
     @Override

@@ -3,14 +3,11 @@ package ru.file.manager.recycler;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-
 import java.io.File;
-
 import ru.file.manager.R;
+import ru.file.manager.data.Preferences;
 import ru.file.manager.utils.FileUtils;
-import ru.file.manager.utils.PreferenceUtils;
 
 final class ViewHolderVideo extends ViewHolder {
     private TextView name;
@@ -42,8 +39,7 @@ final class ViewHolderVideo extends ViewHolder {
 
     @Override
     protected void bindName(File file) {
-        boolean extension = PreferenceUtils.getBoolean(context, "pref_extension", true);
-        name.setText(extension ? FileUtils.getName(file) : file.getName());
+        name.setText(Preferences.showExtensions() ? FileUtils.getName(file) : file.getName());
     }
 
     @Override
